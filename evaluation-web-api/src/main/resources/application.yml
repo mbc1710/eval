@@ -1,0 +1,21 @@
+server:
+   port: 8087
+   servlet:
+      context-path: /api
+spring:
+  datasource:
+    url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=PostgreSQL;
+    username: root
+    password: password
+    driverClassName: org.h2.Driver
+    schema: classpath:/scripts/schema.sql
+    continue-on-error: true
+  jpa:
+    hibernate:      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+  sql:    init:      mode: always  
+  h2:
+    console:      path: /console
+      enabled: true
+  main:    allow-bean-definition-overriding: true
